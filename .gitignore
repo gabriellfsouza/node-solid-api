@@ -4,3 +4,4 @@ build
 
 db-volume/*
 !db-volume/.gitkeep
+coverage
