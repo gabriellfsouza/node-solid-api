@@ -1,0 +1,13 @@
+import { makeGetUserProfileUseCase } from '@/use-cases/factories/make-get-user-profile-use-case'
+import { FastifyReply, FastifyRequest } from 'fastify'
+
+export async function profile(request: FastifyRequest, reply: FastifyReply) {
+  const getUserProfile = makeGetUserProfileUseCase()
+  const {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    user: { password_hash: _password_hash, ...user },
+  } = await getUserProfile.execute({
+    userId: request.user.sub,
+  })
+  return reply.code(200).send({ user })
+}
