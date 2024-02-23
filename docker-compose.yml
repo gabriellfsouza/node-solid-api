@@ -12,3 +12,17 @@ services:
       - POSTGRESQL_DATABASE=apisolid
     volumes:
       - ./db-volume:/bitnami/postgresql
+    networks:
+      - compose-shared-network
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - api-solid-db
+    networks:
+      - compose-shared-network
+
+networks:
+  compose-shared-network:
