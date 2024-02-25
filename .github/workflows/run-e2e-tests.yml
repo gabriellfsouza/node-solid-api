@@ -16,11 +16,6 @@ jobs:
          POSTGRESQL_USER: docker
          POSTGRESQL_PASSWORD: docker
          POSTGRESQL_DATABASE: apisolid
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
 
     steps:
       - uses: actions/checkout@v3
@@ -29,7 +24,7 @@ jobs:
           node-version: 21
           cache: npm
       - run: npm ci
-      - run: npm run e2e
+      - run: npm run test:e2e
         env:
           JWT_SECRET: testing
           DATABASE_URL: postgresql://docker:docker@localhost:5432/apisolid
