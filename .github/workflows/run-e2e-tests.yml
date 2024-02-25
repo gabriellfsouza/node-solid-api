@@ -18,8 +18,8 @@ jobs:
          POSTGRESQL_DATABASE: apisolid
         options: >-
           --health-cmd pg_isready
-          --health-interval 10s
           --health-timeout 5s
+          --health-interval 10s
           --health-retries 5
 
     steps:
