@@ -10,14 +10,21 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  ADMIN
+  MEMBER
+}
+
 model User {
-  id            String    @id @default(uuid())
+  id            String   @id @default(uuid())
   name          String
-  email         String    @unique
+  email         String   @unique
   password_hash String
-  created_at    DateTime  @default(now())
-  updated_at    DateTime  @updatedAt
-  checkIns      CheckIn[] // camelCase as this field is not stored on database
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+  role          Role     @default(MEMBER)
+
+  checkIns CheckIn[] // camelCase as this field is not stored on database
 
   @@map("users")
 }
