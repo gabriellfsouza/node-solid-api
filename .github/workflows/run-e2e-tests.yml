@@ -24,7 +24,7 @@ jobs:
           node-version: 21
           cache: npm
       - run: npm ci
-      - run: npm run e2e
+      - run: npm run test:e2e
         env:
           JWT_SECRET: testing
           DATABASE_URL: postgresql://docker:docker@localhost:5432/apisolid
