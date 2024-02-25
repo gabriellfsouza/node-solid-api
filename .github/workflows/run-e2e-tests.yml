@@ -16,11 +16,6 @@ jobs:
          POSTGRESQL_USER: docker
          POSTGRESQL_PASSWORD: docker
          POSTGRESQL_DATABASE: apisolid
-        options: >-
-          --health-cmd pg_isready
-          --health-timeout 5s
-          --health-interval 10s
-          --health-retries 5
 
     steps:
       - uses: actions/checkout@v3
