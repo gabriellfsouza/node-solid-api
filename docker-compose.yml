@@ -23,6 +23,24 @@ services:
       - api-solid-db
     networks:
       - compose-shared-network
+  api-solid-api:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    restart: always
+    env_file:
+      - .env.compose
+    ports:
+      - 3000:3000
+      - 9221:9221
+    depends_on:
+      - api-solid-db
+    working_dir: /home/node/app
+    volumes:
+      - .:/home/node/app
+    networks:
+      - compose-shared-network
+    command: "npm run compose:run"
 
 networks:
   compose-shared-network:

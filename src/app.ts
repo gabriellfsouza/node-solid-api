@@ -24,6 +24,11 @@ app.register(usersRoutes)
 app.register(gymsRoutes)
 app.register(checkInsRoutes)
 
+app.get('/', () => {
+  debugger
+  return 'ok'
+})
+
 app.setErrorHandler((error, _request, reply) => {
   if (error instanceof ZodError) {
     return reply.status(400).send({

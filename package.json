@@ -24,7 +24,8 @@
     "pretest:e2e": "run-s test:create-prisma-environment test:install-prisma-environment",
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
-    "link:vitest-environment-prisma": "cd prisma/vitest-environment-prisma && npm link && cd ../../ && npm link vitest-environment-prisma"
+    "link:vitest-environment-prisma": "cd prisma/vitest-environment-prisma && npm link && cd ../../ && npm link vitest-environment-prisma",
+    "compose:run": "npm run prisma:generate && npm run start:dev"
   },
   "keywords": [],
   "author": "",
