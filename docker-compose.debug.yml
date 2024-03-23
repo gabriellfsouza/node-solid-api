@@ -32,6 +32,7 @@ services:
       - .env.compose
     ports:
       - 3000:3000
+      - 9221:9221
     depends_on:
       - api-solid-db
     working_dir: /home/node/app
@@ -39,7 +40,7 @@ services:
       - .:/home/node/app
     networks:
       - compose-shared-network
-    command: "npm run compose:run"
+    command: "npm run compose:debug"
 
 networks:
   compose-shared-network:

@@ -25,7 +25,8 @@
     "test:create-prisma-environment": "npm link ./prisma/vitest-environment-prisma",
     "test:install-prisma-environment": "npm link vitest-environment-prisma",
     "link:vitest-environment-prisma": "cd prisma/vitest-environment-prisma && npm link && cd ../../ && npm link vitest-environment-prisma",
-    "compose:run": "npm run prisma:generate && npm run start:dev"
+    "compose:run": "npm i && npm run prisma:generate && npm run start:dev",
+    "compose:debug": "npm i && npm run prisma:generate && tsx --inspect=0.0.0.0:9221 src/server.ts"
   },
   "keywords": [],
   "author": "",
